@@ -1,5 +1,4 @@
-namespace CivicTrack.Data.Entities
-{
+
     public class User
     {
         public int Id { get; set; } 
@@ -11,5 +10,6 @@ namespace CivicTrack.Data.Entities
 
         public bool IsActive { get; set; } = true;
 
+        public string Role { get; set; } = "User";
+
     }
-}

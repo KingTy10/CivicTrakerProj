@@ -12,6 +12,9 @@ namespace CivicTrack.Data.Contexts
 
         // Add your DbSets here
         public DbSet<User> Users { get; set; }
+
+        public DbSet<ServiceRequest> ServiceRequests { get; set; }
+        
         // public DbSet<AnotherEntity> AnotherEntities { get; set; }
     }
 }

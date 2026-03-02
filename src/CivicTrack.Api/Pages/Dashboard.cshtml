@@ -1,0 +1,45 @@
+@page
+@model DashboardModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<h2>Dashboard</h2>
+
+@if (Model.CurrentUser != null)
+{
+    <h4>Logged in as: @Model.CurrentUser.Name (@Model.CurrentUser.Role)</h4>
+
+    @if (Model.CurrentUser.Role == "User")
+    {
+        <form method="post">
+            <input type="hidden" name="userId" value="@Model.CurrentUser.Id" />
+            <div>
+                <label>Title</label>
+                <input asp-for="NewRequest.Title" />
+            </div>
+            <div>
+                <label>Description</label>
+                <textarea asp-for="NewRequest.Description"></textarea>
+            </div>
+            <button type="submit">Submit Request</button>
+        </form>
+    }
+
+    @if (Model.Requests.Any())
+    {
+        <h3>Requests</h3>
+        <ul>
+            @foreach (var request in Model.Requests)
+            {
+                <li>
+                    <strong>@request.Title</strong> - @request.Status
+                </li>
+            }
+        </ul>
+    }
+}
+else
+{
+    <p>No user found. Add ?userId=1 to the URL.</p>
+}
