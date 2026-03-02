@@ -10,7 +10,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     )
 );
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddApplicationPart(typeof(CivicTrack.Api.Controllers.UsersController).Assembly);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

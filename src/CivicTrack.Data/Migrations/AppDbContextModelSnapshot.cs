@@ -44,9 +44,33 @@ namespace CivicTrack.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedAt = new DateTime(2026, 3, 1, 22, 58, 26, 481, DateTimeKind.Local).AddTicks(9973),
+                            Email = "admin@example.com",
+                            IsActive = true,
+                            Name = "Admin User",
+                            Role = "Admin"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedAt = new DateTime(2026, 3, 1, 22, 58, 26, 483, DateTimeKind.Local).AddTicks(4671),
+                            Email = "user@example.com",
+                            IsActive = true,
+                            Name = "Regular User",
+                            Role = "User"
+                        });
                 });
 #pragma warning restore 612, 618
         }

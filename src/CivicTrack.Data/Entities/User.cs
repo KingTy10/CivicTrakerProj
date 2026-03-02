@@ -11,5 +11,7 @@ namespace CivicTrack.Data.Entities
 
         public bool IsActive { get; set; } = true;
 
+         public string Role { get; set; } = "User"; // "Admin", "User", etc.
+
     }
 }
